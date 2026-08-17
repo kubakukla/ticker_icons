@@ -3,11 +3,16 @@
 Instrument logos served over jsDelivr's GitHub CDN.
 
 ```
-https://cdn.jsdelivr.net/gh/kubakukla/ticker_icons@v1/icons/<key>.<ext>
+https://cdn.jsdelivr.net/gh/kubakukla/ticker_icons@v3/icons/<key>.png
 ```
 
 `<key>` is the XTB ticker, lowercased, with `.` replaced by `_` — `CDR.PL`
-becomes `cdr_pl`. The exchange suffix is deliberately kept: bare symbols
+becomes `cdr_pl`. Every icon is PNG whatever the upstream source served, so
+the URL follows from the ticker with no index lookup. Coverage is partial by
+design — 7418 of 9730 tickers — and a miss returns 404, which the frontend
+turns into a generated initials avatar.
+
+The exchange suffix is deliberately kept: bare symbols
 collide across markets (GPW's `CDR` is CD Projekt, NYSE's is Cedar Realty),
 and resolving to the wrong company's logo is the exact bug this repo exists
 to fix.
